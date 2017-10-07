@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 
 class LandingPage extends Component {
@@ -16,10 +17,11 @@ class LandingPage extends Component {
   }
 
   render() {
+    console.log(this.state.locations)
     const location = this.state.locations.map((location, index) => {
       return (
         <div key={index}>
-          <p>{location.name}</p>
+          <Link to={`/locations/${location.id}`}>{location.name}</Link>
           <p>{location.address}</p>
           <p>{location.phone_number}</p>
         </div>
