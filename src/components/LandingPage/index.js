@@ -17,13 +17,21 @@ class LandingPage extends Component {
   }
 
   render() {
-    console.log(this.state.locations)
-    const location = this.state.locations.map((location, index) => {
+    const location = this.state.locations.map(location => {
       return (
-        <div key={index}>
-          <Link to={`/locations/${location.id}`}>{location.name}</Link>
-          <p>{location.address}</p>
-          <p>{location.phone_number}</p>
+        <div key={location.id} className="row">
+          <div className="col s12 m3">
+            <div className="card blue-grey darken-1">
+              <div className="card-content white-text">
+                <span className="card-title">{location.name}</span>
+                <p>{location.phone_number}</p>
+                <p>{location.address}</p>
+              </div>
+              <div className="card-action">
+                <Link to={`/locations/${location.id}`}>View</Link>
+              </div>
+            </div>
+          </div>
         </div>
       )
     })

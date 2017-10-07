@@ -4,14 +4,16 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // Externals
 import LandingPage from '../LandingPage';
 import BaseLayout from '../BaseLayout';
-import Show from '../Show';
+import ShowLocation from '../ShowLocation';
+import CreateLocation from '../CreateLocation';
 
 const App = () => (
   <BrowserRouter>
     <Switch>
       <BaseLayout>
         <Route exact path="/" component={LandingPage}/>
-        <Route path="/locations/:id" component={Show}/>
+        <Route path="/locations/:id" component={ShowLocation}/>
+        <Route path="/add" component={CreateLocation}/>
       </BaseLayout>
     </Switch>
   </BrowserRouter>
