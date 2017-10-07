@@ -1,28 +1,18 @@
-import React, { Component } from 'react';
+// Dependencies
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+// Externals
+import LandingPage from '../LandingPage';
+import BaseLayout from '../BaseLayout';
 
-
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      locations: [],
-    }
-  }
-
-  componentDidMount() {
-    fetch('http://localhost:8080/locations')
-    .then(response => response.json())
-    .then(locations => this.setState({ locations }))
-  }
-
-  render() {
-    console.log(this.state.locations)
-    return (
-      <div>
-
-      </div>
-    );
-  }
-}
+const App = () => (
+  <BrowserRouter>
+    <Switch>
+      <BaseLayout>
+        <Route exact path="/" component={LandingPage}/>
+      </BaseLayout>
+    </Switch>
+  </BrowserRouter>
+)
 
 export default App;
