@@ -6,13 +6,15 @@ import LandingPage from '../LandingPage';
 import BaseLayout from '../BaseLayout';
 import ShowLocation from '../ShowLocation';
 import CreateLocation from '../CreateLocation';
+import EditLocation from '../EditLocation';
 
 const App = () => (
   <BrowserRouter>
     <Switch>
       <BaseLayout>
         <Route exact path="/" component={LandingPage}/>
-        <Route path="/locations/:id" component={ShowLocation}/>
+        <Route exact path="/locations/edit/:id" component={EditLocation}/>
+        <Route exact path="/locations/:id" component={ShowLocation}/>
         <Route path="/add" component={CreateLocation}/>
       </BaseLayout>
     </Switch>

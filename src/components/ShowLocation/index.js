@@ -1,4 +1,6 @@
+// Dependencies
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class ShowLocation extends Component {
   constructor(props) {
@@ -25,6 +27,7 @@ class ShowLocation extends Component {
               <p>{this.state.location.address}</p>
             </div>
             <div className="card-action">
+              <Link to={`/locations/edit/${this.state.location.id}`}>Edit</Link>
             </div>
           </div>
         </div>
