@@ -1,6 +1,10 @@
 // Dependencies
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import map from 'lodash/map';
+// Externals
+import Note from '../Note';
+import Appointment from '../Appointment';
 
 class ShowLocation extends Component {
   constructor(props) {
@@ -31,9 +35,27 @@ class ShowLocation extends Component {
             </div>
           </div>
         </div>
+        <div className="row">
+          <div className="col s4">
+            <ul className="collection">
+              {map(this.state.location.appointments, (appointment) => (
+                <Appointment key={appointment.id} appointment={appointment} />
+              ))}
+            </ul>
+            <div className="section">
+              <ul className="collection">
+                {map(this.state.location.notes, (note) => (
+                  <Note key={note.id} note={note} />
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 }
+
+
 
 export default ShowLocation;

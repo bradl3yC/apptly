@@ -7,6 +7,7 @@ import BaseLayout from '../BaseLayout';
 import ShowLocation from '../ShowLocation';
 import CreateLocation from '../CreateLocation';
 import EditLocation from '../EditLocation';
+import CreateNote from '../CreateNote';
 
 const App = () => (
   <BrowserRouter>
@@ -15,6 +16,7 @@ const App = () => (
         <Route exact path="/" component={LandingPage}/>
         <Route exact path="/locations/edit/:id" component={EditLocation}/>
         <Route exact path="/locations/:id" component={ShowLocation}/>
+        <Route exact path="/locations/:id/notes/create" component={CreateNote}/>
         <Route path="/add" component={CreateLocation}/>
       </BaseLayout>
     </Switch>
