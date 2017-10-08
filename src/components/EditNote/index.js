@@ -1,7 +1,6 @@
-// Dependencies
 import React, { Component } from 'react';
 
-class CreateNote extends Component {
+class EditNote extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -14,25 +13,32 @@ class CreateNote extends Component {
   }
 
   submitNote = (event) => {
-      event.preventDefault()
+    event.preventDefault()
 
-      const data = {
-        entry: this.state.entry,
-        location_id: this.props.match.params.id,
-      }
+    const data = {
+      entry: this.state.entry,
+      location_id: this.props.match.params.id,
+    }
 
-      const headers = new Headers()
-      headers.append('Content-type', 'application/json');
+    const headers = new Headers()
+    headers.append('Content-type', 'application/json');
 
-      const options = {
-        method: 'POST',
-        headers,
-        body: JSON.stringify(data)
-      }
+    const options = {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(data)
+    }
 
-      fetch('http://localhost:8080/notes', options)
-      .then(window.location.href=`/locations/${this.props.match.params.id}`)
+    fetch('http://localhost:8080/notes', options)
+    .then(window.location.href=`/locations/${this.props.match.params.id}`)
   }
+
+  componentDidMount() {
+    fetch(`http://localhost:8080/notes/${this.props.match.params.note_id}`)
+    .then(response => response.json())
+    .then(note => this.setState({ entry: note.entry }))
+  }
+
 
   render() {
     return (
@@ -44,7 +50,7 @@ class CreateNote extends Component {
               id="entry"
               className="materialize-textarea"
               placeholder="Note:"
-              defaultValue={this.state.entry}>
+              value={this.state.entry}>
             </textarea>
           </div>
           <div className="section">
@@ -54,8 +60,8 @@ class CreateNote extends Component {
           </div>
         </form>
       </div>
-    )
+    );
   }
 }
 
-export default CreateNote;
+export default EditNote;
