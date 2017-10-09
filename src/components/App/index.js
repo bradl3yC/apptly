@@ -4,22 +4,24 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // Externals
 import LandingPage from '../LandingPage';
 import BaseLayout from '../BaseLayout';
-import ShowLocation from '../ShowLocation';
-import CreateLocation from '../CreateLocation';
-import EditLocation from '../EditLocation';
+import ShowPatient from '../ShowPatient';
+import CreatePatient from '../CreatePatient';
+import EditPatient from '../EditPatient';
 import CreateNote from '../CreateNote';
 import EditNote from '../EditNote';
+import CreateAppointment from '../CreateAppointment';
 
 const App = () => (
   <BrowserRouter>
     <Switch>
       <BaseLayout>
         <Route exact path="/" component={LandingPage}/>
-        <Route exact path="/locations/edit/:id" component={EditLocation}/>
-        <Route exact path="/locations/:id" component={ShowLocation}/>
-        <Route exact path="/locations/:id/notes/create" component={CreateNote}/>
-        <Route exact path="/locations/:id/notes/:note_id/edit" component={EditNote}/>
-        <Route path="/add" component={CreateLocation}/>
+        <Route exact path="/patients/edit/:id" component={EditPatient}/>
+        <Route exact path="/patients/:id" component={ShowPatient}/>
+        <Route exact path="/patients/:id/notes/create" component={CreateNote}/>
+        <Route exact path="/patients/:id/appointments/create" component={CreateAppointment}/>
+        <Route exact path="/patients/:id/notes/:note_id/edit" component={EditNote}/>
+        <Route path="/add" component={CreatePatient}/>
       </BaseLayout>
     </Switch>
   </BrowserRouter>

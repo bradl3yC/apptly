@@ -7,30 +7,30 @@ class LandingPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      locations: [],
+      patients: [],
     }
   }
 
   componentDidMount() {
-    fetch('http://localhost:8080/locations')
+    fetch('http://localhost:8080/patients')
     .then(response => response.json())
-    .then(locations => this.setState({ locations }))
+    .then(patients => this.setState({ patients }))
   }
 
   render() {
     return (
       <div>
-        {map(this.state.locations, (location) => (
-          <div key={location.id} className="row">
+        {map(this.state.patients, (patient) => (
+          <div key={patient.id} className="row">
             <div className="col s12 m3">
-              <div className="card blue-grey darken-1">
+              <div className="card blue darken-2">
                 <div className="card-content white-text">
-                  <span className="card-title">{location.name}</span>
-                  <p>{location.phone_number}</p>
-                  <p>{location.address}</p>
+                  <span className="card-title">{patient.name}</span>
+                  <p>{patient.phone_number}</p>
+                  <p>{patient.address}</p>
                 </div>
                 <div className="card-action">
-                  <Link to={`/locations/${location.id}`}>View</Link>
+                  <Link to={`/patients/${patient.id}`}>View</Link>
                 </div>
               </div>
             </div>

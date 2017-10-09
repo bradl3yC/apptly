@@ -4,7 +4,9 @@ class EditNote extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      note: [],
       entry: "",
+      location: [],
     }
   }
 
@@ -24,27 +26,28 @@ class EditNote extends Component {
     headers.append('Content-type', 'application/json');
 
     const options = {
-      method: 'POST',
+      method: 'PUT',
       headers,
       body: JSON.stringify(data)
     }
 
-    fetch('http://localhost:8080/notes', options)
+    fetch(`http://localhost:8080/notes/${this.state.note.id}`, options)
     .then(window.location.href=`/locations/${this.props.match.params.id}`)
   }
 
   componentDidMount() {
     fetch(`http://localhost:8080/notes/${this.props.match.params.note_id}`)
     .then(response => response.json())
-    .then(note => this.setState({ entry: note.entry }))
+    .then(note => this.setState({ note, entry: note.entry, location: note.location }))
   }
 
 
   render() {
     return (
       <div className="row">
+        <h5>Editing note for {this.state.location.name}</h5>
         <form className="col s12" onSubmit={ event => this.submitNote(event) }>
-          <div className="input-field col s6">
+          <div className="input-field col s4">
             <textarea
               onChange={ event => this.onChangeHandler(event.target.value) }
               id="entry"
@@ -54,7 +57,7 @@ class EditNote extends Component {
             </textarea>
           </div>
           <div className="section">
-            <button type="submit" className="btn-floating btn-large waves-effect waves-light red">
+            <button type="submit" className="btn-floating btn-small waves-effect waves-light red">
               <i className="material-icons">add</i>
             </button>
           </div>

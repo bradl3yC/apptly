@@ -1,7 +1,7 @@
 // Dependencies
 import React, { Component } from 'react';
 
-class EditLocation extends Component {
+class EditPatient extends Component {
 
   constructor(props) {
     super(props)
@@ -13,16 +13,16 @@ class EditLocation extends Component {
   }
 
   componentDidMount() {
-    fetch(`http://localhost:8080/locations/` + this.props.match.params.id)
+    fetch(`http://localhost:8080/patients/` + this.props.match.params.id)
     .then(response => response.json())
-    .then(location => this.setState({ name: location.name, phone_number: location.phone_number, address: location.address }))
+    .then(patient => this.setState({ name: patient.name, phone_number: patient.phone_number, address: patient.address }))
   }
 
   onChangeHandler = (key, value) => {
     this.setState({[key]: value});
   }
 
-  submitLocation = (event) => {
+  submitPatient = (event) => {
     event.preventDefault()
 
     const data = {
@@ -40,14 +40,14 @@ class EditLocation extends Component {
       body: JSON.stringify(data)
     }
 
-    fetch(`http://localhost:8080/locations/${this.props.match.params.id}`, options)
-    .then(window.location.href="/")
+    fetch(`http://localhost:8080/patients/${this.props.match.params.id}`, options)
+    .then(window.patient.href="/")
   }
 
   render () {
     return (
       <div className="row">
-        <form className="col s12" onSubmit={ event => this.submitLocation(event) }>
+        <form className="col s12" onSubmit={ event => this.submitPatient(event) }>
           <div className="section">
             <div className="row">
               <div className="input-field col s3">
@@ -95,4 +95,4 @@ class EditLocation extends Component {
   }
 }
 
-export default EditLocation;
+export default EditPatient;

@@ -16,7 +16,7 @@ class Note extends Component {
     }
 
     fetch(`http://localhost:8080/notes/${this.props.note.id}`, options)
-    .then(window.location.href=`/locations/${this.props.note.location_id}`)
+    .then(window.location.href=`/patients/${this.props.note.patient_id}`)
 
   }
 
@@ -24,10 +24,10 @@ class Note extends Component {
     return (
       <li className="collection-item dismissable">
         <div>{this.props.note.entry}
-          <a href={`/locations/${this.props.note.location_id}/notes/${this.props.note.id}/edit`} className="secondary-content">
+          <a href={`/patients/${this.props.note.patient_id}/notes/${this.props.note.id}/edit`} className="secondary-content">
             <i className="material-icons">create</i>
           </a>
-          <a onClick={ event => this.deleteNote(event) } className="secondary-content">
+          <a href="#" onClick={ event => this.deleteNote(event) } className="secondary-content">
             <i className="material-icons">cancel</i>
           </a>
         </div>

@@ -18,7 +18,7 @@ class CreateNote extends Component {
 
       const data = {
         entry: this.state.entry,
-        location_id: this.props.match.params.id,
+        patient_id: this.props.match.params.id,
       }
 
       const headers = new Headers()
@@ -31,7 +31,7 @@ class CreateNote extends Component {
       }
 
       fetch('http://localhost:8080/notes', options)
-      .then(window.location.href=`/locations/${this.props.match.params.id}`)
+      .then(window.location.href=`/patients/${this.props.match.params.id}`)
   }
 
   render() {

@@ -6,48 +6,56 @@ import map from 'lodash/map';
 import Note from '../Note';
 import Appointment from '../Appointment';
 
-class ShowLocation extends Component {
+class ShowPatient extends Component {
   constructor(props) {
     super (props)
     this.state = {
-      location: [],
+      patient: [],
     }
   }
 
   componentDidMount() {
-    fetch(`http://localhost:8080/locations/` + this.props.match.params.id)
+    fetch(`http://localhost:8080/patients/` + this.props.match.params.id)
     .then(response => response.json())
-    .then(location => this.setState({ location }))
+    .then(patient => this.setState({ patient }))
   }
 
   render() {
     return (
       <div className="row">
         <div className="col s12 m3">
-          <div className="card blue-grey darken-1">
+          <div className="card blue darken-2">
             <div className="card-content white-text">
-              <span className="card-title">{this.state.location.name}</span>
-              <p>{this.state.location.phone_number}</p>
-              <p>{this.state.location.address}</p>
+              <span className="card-title">{this.state.patient.name}</span>
+              <p>{this.state.patient.phone_number}</p>
+              <p>{this.state.patient.address}</p>
             </div>
             <div className="card-action">
-              <Link to={`/locations/edit/${this.state.location.id}`}>Edit</Link>
+              <Link to={`/patients/edit/${this.state.patient.id}`}>Edit</Link>
             </div>
           </div>
         </div>
         <div className="row">
           <div className="col s4">
+            <h5>Appointments:</h5>
             <ul className="collection">
-              {map(this.state.location.appointments, (appointment) => (
+              {map(this.state.patient.appointments, (appointment) => (
                 <Appointment key={appointment.id} appointment={appointment} />
               ))}
             </ul>
+            <a href={`/patients/${this.state.patient.id}/appointments/create`} className="secondary-content">
+              <i className="material-icons">add</i>
+            </a>
             <div className="section">
+              <h5>Notes:</h5>
               <ul className="collection">
-                {map(this.state.location.notes, (note) => (
+                {map(this.state.patient.notes, (note) => (
                   <Note key={note.id} note={note} />
                 ))}
               </ul>
+              <a href={`/patients/${this.state.patient.id}/notes/create`} className="secondary-content">
+                <i className="material-icons">add</i>
+              </a>
             </div>
           </div>
         </div>
@@ -58,4 +66,4 @@ class ShowLocation extends Component {
 
 
 
-export default ShowLocation;
+export default ShowPatient;

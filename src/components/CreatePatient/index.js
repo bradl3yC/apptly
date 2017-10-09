@@ -1,7 +1,7 @@
 // Dependencies
 import React, { Component } from 'react';
 
-class CreateLocation extends Component {
+class CreatePatient extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -15,7 +15,7 @@ class CreateLocation extends Component {
     this.setState({[key]: value});
   }
 
-  submitLocation = (event) => {
+  submitPatient = (event) => {
     event.preventDefault()
 
     const data = {
@@ -33,14 +33,14 @@ class CreateLocation extends Component {
       body: JSON.stringify(data)
     }
 
-    fetch('http://localhost:8080/locations', options)
+    fetch('http://localhost:8080/patients', options)
     .then(window.location.href="/")
   }
 
   render () {
     return (
       <div className="row">
-        <form className="col s12" onSubmit={ event => this.submitLocation(event) }>
+        <form className="col s12" onSubmit={ event => this.submitPatient(event) }>
           <div className="section">
             <div className="row">
               <div className="input-field col s3">
@@ -87,4 +87,4 @@ class CreateLocation extends Component {
   }
 }
 
-export default CreateLocation;
+export default CreatePatient;
