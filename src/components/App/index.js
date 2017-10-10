@@ -9,6 +9,7 @@ import CreatePatient from '../CreatePatient';
 import EditPatient from '../EditPatient';
 import CreateNote from '../CreateNote';
 import EditNote from '../EditNote';
+import EditAppointment from '../EditAppointment';
 import CreateAppointment from '../CreateAppointment';
 
 const App = () => (
@@ -21,6 +22,7 @@ const App = () => (
         <Route exact path="/patients/:id/notes/create" component={CreateNote}/>
         <Route exact path="/patients/:id/appointments/create" component={CreateAppointment}/>
         <Route exact path="/patients/:id/notes/:note_id/edit" component={EditNote}/>
+        <Route exact path="/patients/:id/appointments/:appointment_id/edit" component={EditAppointment}/>
         <Route path="/add" component={CreatePatient}/>
       </BaseLayout>
     </Switch>

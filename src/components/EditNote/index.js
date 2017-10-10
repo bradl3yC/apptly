@@ -6,7 +6,7 @@ class EditNote extends Component {
     this.state = {
       note: [],
       entry: "",
-      location: [],
+      patient: [],
     }
   }
 
@@ -19,7 +19,7 @@ class EditNote extends Component {
 
     const data = {
       entry: this.state.entry,
-      location_id: this.props.match.params.id,
+      patient_id: this.props.match.params.id,
     }
 
     const headers = new Headers()
@@ -32,20 +32,20 @@ class EditNote extends Component {
     }
 
     fetch(`http://localhost:8080/notes/${this.state.note.id}`, options)
-    .then(window.location.href=`/locations/${this.props.match.params.id}`)
+    .then(window.location.href=`/patients/${this.props.match.params.id}`)
   }
 
   componentDidMount() {
     fetch(`http://localhost:8080/notes/${this.props.match.params.note_id}`)
     .then(response => response.json())
-    .then(note => this.setState({ note, entry: note.entry, location: note.location }))
+    .then(note => this.setState({ note, entry: note.entry, patient: note.patient }))
   }
 
 
   render() {
     return (
       <div className="row">
-        <h5>Editing note for {this.state.location.name}</h5>
+        <h5>Editing note for {this.state.patient.name}</h5>
         <form className="col s12" onSubmit={ event => this.submitNote(event) }>
           <div className="input-field col s4">
             <textarea

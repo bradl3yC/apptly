@@ -1,7 +1,6 @@
 // Dependencies
 import React, { Component } from 'react';
 
-
 class Note extends Component {
 
   deleteNote = (event) => {
@@ -27,7 +26,7 @@ class Note extends Component {
           <a href={`/patients/${this.props.note.patient_id}/notes/${this.props.note.id}/edit`} className="secondary-content">
             <i className="material-icons">create</i>
           </a>
-          <a href="#" onClick={ event => this.deleteNote(event) } className="secondary-content">
+          <a href="#deleteNote" onClick={ event => this.deleteNote(event) } className="secondary-content">
             <i className="material-icons">cancel</i>
           </a>
         </div>

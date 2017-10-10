@@ -23,12 +23,15 @@ class ShowPatient extends Component {
   render() {
     return (
       <div className="row">
-        <div className="col s12 m3">
+        <div className="col s12 m5">
           <div className="card blue darken-2">
             <div className="card-content white-text">
               <span className="card-title">{this.state.patient.name}</span>
-              <p>{this.state.patient.phone_number}</p>
-              <p>{this.state.patient.address}</p>
+              <p>Phone: {this.state.patient.phone_number}</p>
+              <p>Address: {this.state.patient.address}</p>
+              <p>Home Health Company: {this.state.patient.home_health_company}</p>
+              <p>Assistant: {this.state.patient.assistant}</p>
+              <p>Visit Frequency: {this.state.patient.visit_frequency}</p>
             </div>
             <div className="card-action">
               <Link to={`/patients/edit/${this.state.patient.id}`}>Edit</Link>
