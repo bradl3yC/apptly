@@ -11,12 +11,16 @@ import CreateNote from '../CreateNote';
 import EditNote from '../EditNote';
 import EditAppointment from '../EditAppointment';
 import CreateAppointment from '../CreateAppointment';
+import Patients from '../Patients';
+import Login from '../Login';
 
 const App = () => (
   <BrowserRouter>
     <Switch>
       <BaseLayout>
         <Route exact path="/" component={LandingPage}/>
+        <Route exact path="/login" component={Login}/>
+        <Route exact path="/patients" component={Patients}/>
         <Route exact path="/patients/edit/:id" component={EditPatient}/>
         <Route exact path="/patients/:id" component={ShowPatient}/>
         <Route exact path="/patients/:id/notes/create" component={CreateNote}/>

@@ -30,17 +30,18 @@ class CreatePatient extends Component {
       visit_frequency: this.state.visit_frequency,
     }
 
-    const headers = new Headers()
-    headers.append('Content-type', 'application/json');
-
     const options = {
       method: 'POST',
-      headers,
+      headers: {
+        'Content-type': 'application/json',
+        'X-User-Token': localStorage.token,
+        'X-User-Email': localStorage.email,
+      },
       body: JSON.stringify(data)
     }
 
     fetch('http://localhost:8080/patients', options)
-    .then(window.location.href="/")
+    .then(window.location.href="/patients")
   }
 
   render () {
