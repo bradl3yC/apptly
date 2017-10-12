@@ -1,5 +1,6 @@
 // Dependencies
 import React, { Component } from 'react';
+import { Parallax } from 'react-materialize';
 // Externals
 import background1 from '../../images/background1.jpg';
 import background2 from '../../images/background2.png';
@@ -26,7 +27,7 @@ class LandingPage extends Component {
             </div>
           </div>
           <div className="parallax">
-            <img src={background1} alt="Unsplashed background img 1" />
+            <Parallax imageSrc={background1} />
           </div>
         </div>
         <div className="container">
@@ -64,7 +65,9 @@ class LandingPage extends Component {
               </div>
             </div>
           </div>
-          <div className="parallax"><img src={background2} alt="Unsplashed background img 2" /></div>
+          <div className="parallax">
+            <Parallax imageSrc={background2} />
+          </div>
         </div>
 
         <div className="container">
@@ -87,7 +90,9 @@ class LandingPage extends Component {
               </div>
             </div>
           </div>
-          <div className="parallax"><img src={background3} alt="Unsplashed background img 3" /></div>
+          <div className="parallax">
+            <Parallax imageSrc={background3} />
+          </div>
         </div>
         <footer className="page-footer teal">
           <div className="container">

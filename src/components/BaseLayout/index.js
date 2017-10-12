@@ -1,14 +1,21 @@
 // Dependencies
 import React, { Component } from 'react';
 // Externals
-import NavBar from '../NavBar';
-
+import LoggedIn from '../LoggedIn';
+import LoggedOut from '../LoggedOut';
 
 class BaseLayout extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      status: "",
+    }
+  }
+
   render() {
     return (
       <div>
-        <NavBar />
+        {localStorage.token ? <LoggedIn /> : <LoggedOut />}
           {this.props.children}
       </div>
     )

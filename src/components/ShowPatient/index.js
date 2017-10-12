@@ -14,8 +14,31 @@ class ShowPatient extends Component {
     }
   }
 
+  deletePatient = () => {
+    const options = {
+      method: 'DELETE',
+      headers: {
+        'Content-type': 'application/json',
+        'X-User-Token': localStorage.token,
+        'X-User-Email': localStorage.email,
+      }
+    }
+
+    fetch('http://localhost:8080/patients/' + this.props.match.params.id, options)
+    .then(window.location.href='/patients')
+  }
+
   componentDidMount() {
-    fetch(`http://localhost:8080/patients/` + this.props.match.params.id)
+
+    const options = {
+      method: 'GET',
+      headers: {
+        'X-User-Token': localStorage.token,
+        'X-User-Email': localStorage.email,
+      }
+    }
+
+    fetch('http://localhost:8080/patients/' + this.props.match.params.id, options)
     .then(response => response.json())
     .then(patient => this.setState({ patient }))
   }
@@ -35,6 +58,7 @@ class ShowPatient extends Component {
             </div>
             <div className="card-action">
               <Link to={`/patients/edit/${this.state.patient.id}`}>Edit</Link>
+              <a onClick={() => this.deletePatient()} className="waves-effect waves-light btn red">delete</a>
             </div>
           </div>
         </div>

@@ -18,7 +18,14 @@ class EditPatient extends Component {
   componentDidMount() {
     fetch(`http://localhost:8080/patients/` + this.props.match.params.id)
     .then(response => response.json())
-    .then(patient => this.setState({ name: patient.name, phone_number: patient.phone_number, address: patient.address }))
+    .then(patient => this.setState({
+      name: patient.name,
+      phone_number: patient.phone_number,
+      address: patient.address,
+      home_health_company: patient.home_health_company,
+      assistant: patient.assistant,
+      visit_frequency: patient.visit_frequency,
+    }))
   }
 
   onChangeHandler = (key, value) => {
@@ -37,17 +44,18 @@ class EditPatient extends Component {
       visit_frequency: this.state.visit_frequency,
     }
 
-    const headers = new Headers()
-    headers.append('Content-type', 'application/json');
-
     const options = {
       method: 'PUT',
-      headers,
+      headers: {
+        'Content-type': 'application/json',
+        'X-User-Token': localStorage.token,
+        'X-User-Email': localStorage.email,
+      },
       body: JSON.stringify(data)
     }
 
     fetch(`http://localhost:8080/patients/${this.props.match.params.id}`, options)
-    .then(window.location.href="/")
+    .then(window.location.href=`/patients/${this.props.match.params.id}`)
   }
 
   render () {

@@ -7,6 +7,7 @@ class Login extends Component {
     this.state = {
       email: "",
       password: "",
+      error: "",
     }
   }
 
@@ -33,16 +34,17 @@ class Login extends Component {
       const body = await response.json()
       localStorage.setItem('token', body.authentication_token)
       localStorage.setItem('email', body.email)
+      window.location.href=`/patients/`
     } else {
-      console.log(status, options)
+      this.setState({ error: "Please try again!" })
     }
 
   }
 
   render() {
-    console.log(localStorage.token, localStorage.email)
     return (
       <div className="row">
+        <h4>{this.state.error}</h4>
         <form className="col s12">
           <div className="row">
             <div className="input-field col s3">
