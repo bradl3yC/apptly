@@ -24,7 +24,7 @@ class Appointment extends Component {
     return (
       <li className="collection-item dismissable">
         <div>{moment(this.props.appointment.date_time).format('MMMM Do YYYY, h:mm a')}
-          <a href={`/patients/${this.props.appointment.patient_id}/appointments/${this.props.appointment.id}/edit`}className="secondary-content">
+          <a href={`/patients/${this.props.appointment.patient_id}/appointments/${this.props.appointment.id}/edit`} className="secondary-content">
             <i className="material-icons">create</i>
           </a>
           <a href="#deleteNote" onClick={ event => this.deleteAppointment(event) } className="secondary-content">

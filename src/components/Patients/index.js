@@ -51,6 +51,7 @@ class Patients extends Component {
 
     return (
       <div>
+        <h5>Appointments for:</h5>
         <Row>
 	         <Input
              name='on'
