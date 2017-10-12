@@ -15,40 +15,36 @@ class Patients extends Component {
     }
   }
 
-  fetchPatients() {
+  fetchPatients(date) {
+
     const options = {
       method: 'GET',
       headers: {
         'X-User-Token': localStorage.token,
         'X-User-Email': localStorage.email,
-        'X-For-Date': this.state.date,
+        'X-For-Date': date,
       }
     }
 
     fetch(`http://localhost:8080/patients/show_date`, options)
-    .then((response) => {
-      if (response.status === 204) {
-        this.setState({ message: "No appointments scheduled today!"})
-      }
-      if (response.status === 200) {
-        response.json()
-        .then(patients => this.setState({ patients }))
-      }
-    })
+    .then(response => response.json())
+    .then(patients => this.setState({ patients }))
   }
 
 
   componentDidMount() {
-    this.fetchPatients();
+    this.fetchPatients(this.state.date);
   }
 
   setDate = (date) => {
-    console.log('fired')
-    this.setState({ date: moment(date).format('MMMM Do YYYY') })
+    const formattedDate = moment(date).format('MMMM Do YYYY')
+    this.fetchPatients(formattedDate)
+
+    this.setState({ date: formattedDate })
   }
 
   render() {
-
+    console.log(this.state)
     return (
       <div>
         <h5>Appointments for:</h5>

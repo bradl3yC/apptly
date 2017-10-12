@@ -20,9 +20,6 @@ class LandingPage extends Component {
               <div className="row center">
                 <h5 className="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
               </div>
-              <div className="row center">
-                <a href="http://materializecss.com/getting-started.html" id="download-button" className="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
-              </div>
               <br /><br />
             </div>
           </div>
@@ -102,21 +99,9 @@ class LandingPage extends Component {
                 <p className="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
               </div>
               <div className="col l3 s12">
-                <h5 className="white-text">Settings</h5>
-                <ul>
-                  <li><a className="white-text" href="#!">Link 1</a></li>
-                  <li><a className="white-text" href="#!">Link 2</a></li>
-                  <li><a className="white-text" href="#!">Link 3</a></li>
-                  <li><a className="white-text" href="#!">Link 4</a></li>
-                </ul>
-              </div>
-              <div className="col l3 s12">
                 <h5 className="white-text">Connect</h5>
                 <ul>
                   <li><a className="white-text" href="#!">Link 1</a></li>
-                  <li><a className="white-text" href="#!">Link 2</a></li>
-                  <li><a className="white-text" href="#!">Link 3</a></li>
-                  <li><a className="white-text" href="#!">Link 4</a></li>
                 </ul>
               </div>
             </div>
@@ -130,4 +115,4 @@ class LandingPage extends Component {
 }
 
 
-export default LandingPage
+export default LandingPage;
