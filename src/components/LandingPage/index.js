@@ -16,9 +16,9 @@ class LandingPage extends Component {
           <div className="section no-pad-bot">
             <div className="container">
               <br /><br />
-              <h1 className="header center teal-text text-lighten-2">Parallax Template</h1>
+              <h1 className="header center blue-text text-lighten-2 apptly">Apptly</h1>
               <div className="row center">
-                <h5 className="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                <h5 className="header col s12 light">A patient appointment management service</h5>
               </div>
               <br /><br />
             </div>
@@ -33,7 +33,7 @@ class LandingPage extends Component {
               <div className="col s12 m4">
                 <div className="icon-block">
                   <h2 className="center brown-text"><i className="material-icons">flash_on</i></h2>
-                  <h5 className="center">Speeds up development</h5>
+                  <h5 className="center">Speeds up response</h5>
                   <p className="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
                 </div>
               </div>

@@ -11,7 +11,7 @@ class Patients extends Component {
     this.state = {
       patients: [],
       date: moment([]).format('MMMM Do YYYY'),
-      message: "",
+      message: "No Appointments Today!",
     }
   }
 
@@ -31,7 +31,6 @@ class Patients extends Component {
     .then(patients => this.setState({ patients }))
   }
 
-
   componentDidMount() {
     this.fetchPatients(this.state.date);
   }
@@ -44,10 +43,9 @@ class Patients extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div>
-        <h5>Appointments for:</h5>
+      <h5>Appointments for:</h5>
         <Row>
 	         <Input
              name='on'
@@ -56,7 +54,7 @@ class Patients extends Component {
              onChange={ event => this.setDate(Date.parse(event.target.value))}
            />
          </Row>
-         <h5>{this.state.message}</h5>
+         {this.state.patients.length > 0 ? "" : <h5>No Appointments Today!</h5>}
         {map(this.state.patients, (patient) => (
           <div key={patient.patient.id} className="row">
             <div className="col s12 m3">
