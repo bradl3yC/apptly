@@ -31,12 +31,12 @@ class EditNote extends Component {
       body: JSON.stringify(data)
     }
 
-    fetch(`http://localhost:8080/notes/${this.state.note.id}`, options)
+    fetch(`http://apptly-api.herokuapp.com:8080/notes/${this.state.note.id}`, options)
     .then(window.location.href=`/patients/${this.props.match.params.id}`)
   }
 
   componentDidMount() {
-    fetch(`http://localhost:8080/notes/${this.props.match.params.note_id}`)
+    fetch(`http://apptly-api.herokuapp.com:8080/notes/${this.props.match.params.note_id}`)
     .then(response => response.json())
     .then(note => this.setState({ note, entry: note.entry, patient: note.patient }))
   }

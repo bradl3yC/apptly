@@ -40,7 +40,7 @@ class CreatePatient extends Component {
       body: JSON.stringify(data)
     }
 
-    fetch('http://localhost:8080/patients', options)
+    fetch('http://apptly-api.herokuapp.com:8080/patients', options)
     .then(window.location.href="/patients")
   }
 

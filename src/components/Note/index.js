@@ -14,7 +14,7 @@ class Note extends Component {
       headers
     }
 
-    fetch(`http://localhost:8080/notes/${this.props.note.id}`, options)
+    fetch(`http://apptly-api.herokuapp.com:8080/notes/${this.props.note.id}`, options)
     .then(window.location.href=`/patients/${this.props.note.patient_id}`)
 
   }

@@ -26,7 +26,7 @@ class Patients extends Component {
       }
     }
 
-    fetch(`http://localhost:8080/patients/show_date`, options)
+    fetch(`http://apptly-api.herokuapp.com/patients/show_date`, options)
     .then(response => response.json())
     .then(patients => this.setState({ patients }))
   }
