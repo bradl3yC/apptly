@@ -43,6 +43,7 @@ class Patients extends Component {
   }
 
   render() {
+    console.log(this.state.patients)
     return (
       <div>
       <h5>Appointments for:</h5>
