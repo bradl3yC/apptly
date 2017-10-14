@@ -27,7 +27,7 @@ class Login extends Component {
     }
 
 
-    const response = await fetch('http://apptly-api.herokuapp.com:8080/sessions', options);
+    const response = await fetch('https://apptly-api.herokuapp.com:8080/sessions', options);
     const status = await response.status;
 
     if (status === 201) {

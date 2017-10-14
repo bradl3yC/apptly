@@ -15,7 +15,7 @@ class Appointment extends Component {
         headers
       }
 
-      fetch(`http://apptly-api.herokuapp.com/appointments/${this.props.appointment.id}`, options)
+      fetch(`https://apptly-api.herokuapp.com/appointments/${this.props.appointment.id}`, options)
       .then(window.location.href=`/patients/${this.props.appointment.patient_id}`)
 
     }
