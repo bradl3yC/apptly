@@ -45,6 +45,7 @@ class CreatePatient extends Component {
   }
 
   render () {
+    console.log(this.state)
     return (
       <div className="row">
         <form className="col s12" onSubmit={ event => this.submitPatient(event) }>

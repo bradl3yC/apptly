@@ -57,16 +57,16 @@ class Patients extends Component {
          </Row>
          {this.state.patients.length > 0 ? "" : <h5>No Appointments Today!</h5>}
         {map(this.state.patients, (patient) => (
-          <div key={patient.patient.id} className="row">
+          <div key={patient.id} className="row">
             <div className="col s12 m3">
               <div className="card blue darken-2">
                 <div className="card-content white-text">
-                  <span className="card-title">{patient.patient.name}</span>
-                  <p>{patient.patient.phone_number}</p>
-                  <p>{patient.patient.address}</p>
+                  <span className="card-title">{patient.name}</span>
+                  <p>{patient.phone_number}</p>
+                  <p>{patient.address}</p>
                 </div>
                 <div className="card-action">
-                  <Link to={`/patients/${patient.patient.id}`}>View</Link>
+                  <Link to={`/patients/${patient.id}`}>View</Link>
                 </div>
               </div>
             </div>
