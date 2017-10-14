@@ -32,7 +32,7 @@ class CreateAppointment extends Component {
       body: JSON.stringify(data)
     }
 
-    fetch('https://apptly-api.herokuapp.com:8080/appointments', options)
+    fetch('https://apptly-api.herokuapp.com/appointments', options)
     .then(window.location.href=`/patients/${this.props.match.params.id}`)
   }
 

@@ -30,7 +30,7 @@ class CreateNote extends Component {
         body: JSON.stringify(data)
       }
 
-      fetch('https://apptly-api.herokuapp.com:8080/notes', options)
+      fetch('https://apptly-api.herokuapp.com/notes', options)
       .then(window.location.href=`/patients/${this.props.match.params.id}`)
   }
 

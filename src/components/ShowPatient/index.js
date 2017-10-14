@@ -24,7 +24,7 @@ class ShowPatient extends Component {
       }
     }
 
-    fetch('https://apptly-api.herokuapp.com:8080/patients/' + this.props.match.params.id, options)
+    fetch('https://apptly-api.herokuapp.com/patients/' + this.props.match.params.id, options)
     .then(window.location.href='/patients')
   }
 
@@ -38,7 +38,7 @@ class ShowPatient extends Component {
       }
     }
 
-    fetch('https://apptly-api.herokuapp.com:8080/patients/' + this.props.match.params.id, options)
+    fetch('https://apptly-api.herokuapp.com/patients/' + this.props.match.params.id, options)
     .then(response => response.json())
     .then(patient => this.setState({ patient }))
   }

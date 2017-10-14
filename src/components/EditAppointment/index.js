@@ -37,12 +37,12 @@ class EditAppointment extends Component {
       body: JSON.stringify(data)
     }
 
-    fetch(`https://apptly-api.herokuapp.com:8080/appointments/${this.state.appointment.id}`, options)
+    fetch(`https://apptly-api.herokuapp.com/appointments/${this.state.appointment.id}`, options)
     .then(window.location.href=`/patients/${this.props.match.params.id}`)
   }
 
   componentDidMount() {
-    fetch(`https://apptly-api.herokuapp.com:8080/appointments/${this.props.match.params.appointment_id}`)
+    fetch(`https://apptly-api.herokuapp.com/appointments/${this.props.match.params.appointment_id}`)
     .then(response => response.json())
     .then(appointment => this.setState({ appointment, date_time: appointment.date_time, patient: appointment.patient }))
   }
