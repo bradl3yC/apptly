@@ -16,7 +16,7 @@ class EditPatient extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://apptly-api.herokuapp.com:8080/patients/` + this.props.match.params.id)
+    fetch(`https://apptly-api.herokuapp.com/patients/` + this.props.match.params.id)
     .then(response => response.json())
     .then(patient => this.setState({
       name: patient.name,
@@ -54,7 +54,7 @@ class EditPatient extends Component {
       body: JSON.stringify(data)
     }
 
-    fetch(`https://apptly-api.herokuapp.com:8080/patients/${this.props.match.params.id}`, options)
+    fetch(`https://apptly-api.herokuapp.com/patients/${this.props.match.params.id}`, options)
     .then(window.location.href=`/patients/${this.props.match.params.id}`)
   }
 
