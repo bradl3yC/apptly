@@ -33,22 +33,22 @@ class LandingPage extends Component {
               <div className="col s12 m4">
                 <div className="icon-block">
                   <h2 className="center brown-text"><i className="material-icons">flash_on</i></h2>
-                  <h5 className="center">Speeds up response</h5>
-                  <p className="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+                  <h5 className="center">Integration!</h5>
+                  <p className="light">The days of paper planners and manually entering addresses into a GPS are over.  By integrating with Google Maps, we make finding the patients location easy!</p>
                 </div>
               </div>
               <div className="col s12 m4">
                 <div className="icon-block">
                   <h2 className="center brown-text"><i className="material-icons">group</i></h2>
-                  <h5 className="center">User Experience Focused</h5>
-                  <p className="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+                  <h5 className="center">Title</h5>
+                  <p className="light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum corporis dicta tempora nemo animi quia cupiditate magnam pariatur reiciendis assumenda quaerat, mollitia porro repudiandae quos iure voluptatibus numquam non. Non.</p>
                 </div>
               </div>
               <div className="col s12 m4">
                 <div className="icon-block">
                   <h2 className="center brown-text"><i className="material-icons">settings</i></h2>
-                  <h5 className="center">Easy to work with</h5>
-                  <p className="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+                  <h5 className="center">Title</h5>
+                  <p className="light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum cupiditate, laudantium culpa molestiae ducimus dolore totam officia nostrum sunt eaque, beatae, veritatis error pariatur iure consequatur odit nulla incidunt sequi!</p>
                 </div>
               </div>
             </div>
@@ -58,7 +58,7 @@ class LandingPage extends Component {
           <div className="section no-pad-bot">
             <div className="container">
               <div className="row center">
-                <h5 className="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+                <h5 className="header col s12 light">A modern solution for managing home health care.</h5>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@ class LandingPage extends Component {
           <div className="section no-pad-bot">
             <div className="container">
               <div className="row center">
-                <h5 className="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+
               </div>
             </div>
           </div>
@@ -94,14 +94,12 @@ class LandingPage extends Component {
         <footer className="page-footer teal">
           <div className="container">
             <div className="row">
-              <div className="col l6 s12">
-                <h5 className="white-text">Company Bio</h5>
-                <p className="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
-              </div>
               <div className="col l3 s12">
                 <h5 className="white-text">Connect</h5>
                 <ul>
-                  <li><a className="white-text" href="#!">Link 1</a></li>
+                  <li><a className="white-text" href="http://bradleyryan.io">BradleyRyan.io</a></li>
+                  <li><a className="white-text" href="https://www.linkedin.com/in/brad-conley/">LinkedIn</a></li>
+                  <li><a className="white-text" href="https://github.com/bradl3yC">GitHub</a></li>
                 </ul>
               </div>
             </div>

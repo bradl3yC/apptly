@@ -2,9 +2,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import map from 'lodash/map';
+import { withRouter } from "react-router-dom";
 // Externals
 import Note from '../Note';
 import Appointment from '../Appointment';
+
 
 class ShowPatient extends Component {
   constructor(props) {
@@ -25,7 +27,7 @@ class ShowPatient extends Component {
     }
 
     fetch('https://apptly-api.herokuapp.com/patients/' + this.props.match.params.id, options)
-    .then(window.location.href='/patients')
+    .then(this.props.history.push('/patients'))
   }
 
   componentDidMount() {
@@ -91,6 +93,4 @@ class ShowPatient extends Component {
   }
 }
 
-
-
-export default ShowPatient;
+export default withRouter(ShowPatient);

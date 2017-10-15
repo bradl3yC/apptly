@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Row, Input, Button } from 'react-materialize';
 import moment from 'moment';
-
+import { withRouter } from "react-router-dom";
 
 class EditAppointment extends Component {
   constructor(props) {
@@ -38,7 +38,7 @@ class EditAppointment extends Component {
     }
 
     fetch(`https://apptly-api.herokuapp.com/appointments/${this.state.appointment.id}`, options)
-    .then(window.location.href=`/patients/${this.props.match.params.id}`)
+    .then(this.props.history.push(`/patients/${this.props.match.params.id}`))
   }
 
   componentDidMount() {
@@ -61,4 +61,4 @@ class EditAppointment extends Component {
   }
 }
 
-export default EditAppointment;
+export default withRouter(EditAppointment);

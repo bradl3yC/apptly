@@ -1,6 +1,8 @@
 // Dependencies
 import React, { Component } from 'react';
 import { Row, Input, Button } from 'react-materialize';
+import { withRouter } from "react-router-dom";
+
 
 class CreateAppointment extends Component {
   constructor(props) {
@@ -33,7 +35,7 @@ class CreateAppointment extends Component {
     }
 
     fetch('https://apptly-api.herokuapp.com/appointments', options)
-    .then(window.location.href=`/patients/${this.props.match.params.id}`)
+    .then(this.props.history.push(`/patients/${this.props.match.params.id}`))
   }
 
   render() {
@@ -49,4 +51,4 @@ class CreateAppointment extends Component {
   }
 }
 
-export default CreateAppointment;
+export default withRouter(CreateAppointment);

@@ -1,4 +1,7 @@
+// Dependencies
 import React, { Component } from 'react';
+import { withRouter } from "react-router-dom";
+
 
 class EditNote extends Component {
   constructor(props) {
@@ -32,7 +35,7 @@ class EditNote extends Component {
     }
 
     fetch(`https://apptly-api.herokuapp.com/notes/${this.state.note.id}`, options)
-    .then(window.location.href=`/patients/${this.props.match.params.id}`)
+    .then(this.props.history.push(`/patients/${this.props.match.params.id}`))
   }
 
   componentDidMount() {
@@ -67,4 +70,4 @@ class EditNote extends Component {
   }
 }
 
-export default EditNote;
+export default withRouter(EditNote);

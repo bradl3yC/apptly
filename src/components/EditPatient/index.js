@@ -1,5 +1,7 @@
 // Dependencies
 import React, { Component } from 'react';
+import { withRouter } from "react-router-dom";
+
 
 class EditPatient extends Component {
 
@@ -55,7 +57,7 @@ class EditPatient extends Component {
     }
 
     fetch(`https://apptly-api.herokuapp.com/patients/${this.props.match.params.id}`, options)
-    .then(window.location.href=`/patients/${this.props.match.params.id}`)
+    .then(this.props.history.push(`/patients/${this.props.match.params.id}`))
   }
 
   render () {
@@ -135,4 +137,4 @@ class EditPatient extends Component {
   }
 }
 
-export default EditPatient;
+export default withRouter(EditPatient);

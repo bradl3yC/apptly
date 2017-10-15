@@ -1,5 +1,7 @@
 // Dependencies
 import React, { Component } from 'react';
+import { withRouter } from "react-router-dom";
+
 
 class Login extends Component {
   constructor(props) {
@@ -34,7 +36,7 @@ class Login extends Component {
       const body = await response.json()
       localStorage.setItem('token', body.authentication_token)
       localStorage.setItem('email', body.email)
-      window.location.href=`/patients/`
+      this.props.history.push(`/patients/`)
     } else {
       this.setState({ error: "Please try again!" })
     }
@@ -63,4 +65,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

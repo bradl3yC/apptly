@@ -15,7 +15,10 @@ const LoggedIn = () => (
       <Link to="/" className="brand-logo apptly">Apptly</Link>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
         <li>
-          <Link to="/patients">{localStorage.email}</Link>
+          <Link to="/patients_by_date">Today's Patients</Link>
+        </li>
+        <li>
+          <Link to="/patients">All Patients</Link>
         </li>
         <li>
           <a onClick={logOut} className="waves-effect waves-light btn blue lighten-2">Log Out</a>

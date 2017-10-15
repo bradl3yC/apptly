@@ -1,5 +1,6 @@
 // Dependencies
 import React, { Component } from 'react';
+import { withRouter } from "react-router-dom";
 
 class CreatePatient extends Component {
   constructor(props) {
@@ -40,12 +41,11 @@ class CreatePatient extends Component {
       body: JSON.stringify(data)
     }
 
-    fetch('https://apptly-api.herokuapp.com/patients', options)
-    .then(window.location.href="/patients")
+    fetch('http://apptly-api.herokuapp.com/patients', options)
+    .then(this.props.history.push('/patients'))
   }
 
   render () {
-    console.log(this.state)
     return (
       <div className="row">
         <form className="col s12" onSubmit={ event => this.submitPatient(event) }>
@@ -122,4 +122,4 @@ class CreatePatient extends Component {
   }
 }
 
-export default CreatePatient;
+export default withRouter(CreatePatient);

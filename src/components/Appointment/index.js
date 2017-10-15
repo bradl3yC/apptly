@@ -1,6 +1,8 @@
 // Dependencies
 import React, { Component } from 'react';
 import moment from 'moment';
+import { withRouter } from "react-router-dom";
+
 
 class Appointment extends Component {
 
@@ -16,7 +18,7 @@ class Appointment extends Component {
       }
 
       fetch(`https://apptly-api.herokuapp.com/appointments/${this.props.appointment.id}`, options)
-      .then(window.location.href=`/patients/${this.props.appointment.patient_id}`)
+      .then(this.props.history.push(`/patients/${this.props.appointment.patient_id}`))
 
     }
 
@@ -36,4 +38,4 @@ class Appointment extends Component {
   }
 }
 
-export default Appointment;
+export default withRouter(Appointment);

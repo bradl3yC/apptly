@@ -11,7 +11,8 @@ import CreateNote from '../CreateNote';
 import EditNote from '../EditNote';
 import EditAppointment from '../EditAppointment';
 import CreateAppointment from '../CreateAppointment';
-import Patients from '../Patients';
+import PatientsByDate from '../PatientsByDate';
+import AllPatients from '../AllPatients';
 import Login from '../Login';
 
 const App = () => (
@@ -20,7 +21,8 @@ const App = () => (
       <BaseLayout>
         <Route exact path="/" component={LandingPage}/>
         <Route exact path="/login" component={Login}/>
-        <Route exact path="/patients" component={Patients}/>
+        <Route exact path="/patients_by_date" component={PatientsByDate}/>
+        <Route exact path="/patients" component={AllPatients}/>
         <Route exact path="/patients/edit/:id" component={EditPatient}/>
         <Route exact path="/patients/:id" component={ShowPatient}/>
         <Route exact path="/patients/:id/notes/create" component={CreateNote}/>
