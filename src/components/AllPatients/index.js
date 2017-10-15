@@ -28,6 +28,9 @@ class AllPatients extends Component {
   render() {
     return (
       <div>
+        <Link to="/add">
+          <a class="waves-effect waves-light blue lighten2 btn">Add Patient</a>
+        </Link>
         {map(this.state.patients, (patient) => (
           <div key={patient.id} className="row">
             <div className="col s12 m3">
