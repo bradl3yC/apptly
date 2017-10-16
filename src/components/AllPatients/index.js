@@ -11,7 +11,8 @@ class AllPatients extends Component {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+
     const options = {
       method: 'GET',
       headers: {
@@ -20,16 +21,16 @@ class AllPatients extends Component {
       }
     }
 
-    fetch(`https://apptly-api.herokuapp.com/patients`, options)
-    .then(response => response.json())
-    .then(patients => this.setState({ patients }))
+    const response = await fetch(`https://apptly-api.herokuapp.com/patients`, options);
+    const patients = await response.json();
+    await this.setState({ patients })
   }
 
   render() {
     return (
       <div>
-        <Link to="/add">
-          <a class="waves-effect waves-light blue lighten2 btn">Add Patient</a>
+        <Link to="/add" className="waves-effect waves-light blue lighten2 btn">
+          Add Patient
         </Link>
         {map(this.state.patients, (patient) => (
           <div key={patient.id} className="row">

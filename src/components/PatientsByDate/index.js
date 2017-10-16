@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import { Row, Input } from 'react-materialize';
 import map from 'lodash/map';
 import moment from 'moment';
+import GoogleMapReact from 'google-map-react';
+// Externals
+import MapLocation from '../MapLocation';
+// Internals
+import './index.css';
 
 class PatientsByDate extends Component {
   constructor(props) {
@@ -11,11 +16,17 @@ class PatientsByDate extends Component {
     this.state = {
       patients: [],
       date: moment([]).format('MMMM Do YYYY'),
-      message: "No Appointments Today!",
+      locations: [],
     }
   }
 
-  fetchPatients(date) {
+  async getCoordinates(location, name) {
+    const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURI(location)}&key=${process.env.REACT_APP_GMAPS_API}`)
+    const coords = await response.json();
+    await this.setState({ locations: this.state.locations.concat([[name, coords.results[0].geometry.location.lat, coords.results[0].geometry.location.lng]])})
+  }
+
+  async fetchPatients(date) {
 
     const options = {
       method: 'GET',
@@ -26,13 +37,12 @@ class PatientsByDate extends Component {
       }
     }
 
-    fetch(`https://apptly-api.herokuapp.com/patients/show_date`, options)
-    .then(response => response.json())
-    .then(patients => this.setState({ patients }))
-  }
-
-  componentDidMount() {
-    this.fetchPatients(this.state.date);
+    const response = await fetch(`https://apptly-api.herokuapp.com/patients/show_date`, options);
+    const patients = await response.json();
+    this.setState({ patients })
+    for (var i = 0; i < this.state.patients.length; i++) {
+      this.getCoordinates(this.state.patients[i].patient.address, this.state.patients[i].patient.name)
+    }
   }
 
   setDate = (date) => {
@@ -42,7 +52,12 @@ class PatientsByDate extends Component {
     this.setState({ date: formattedDate })
   }
 
+  componentDidMount() {
+    this.fetchPatients(this.state.date);
+  }
+
   render() {
+    console.log(this.state.locations)
     return (
       <div>
       <h5>Appointments for:</h5>
@@ -71,8 +86,19 @@ class PatientsByDate extends Component {
             </div>
           </div>
         ))}
+        <div className="map">
+          <GoogleMapReact
+            bootstrapURLKeys={{key: process.env.REACT_APP_GMAPS_API}}
+            center={[28.842318, -82.38335599999999]}
+            zoom={10}
+            >
+              {map(this.state.locations, (location) => (
+                <MapLocation lat={location[1]} lng={location[2]} text={location[0]}/>
+              ))}
+            </GoogleMapReact>
+        </div>
       </div>
-    )
+    );
   }
 }
 
