@@ -57,7 +57,6 @@ class PatientsByDate extends Component {
   }
 
   render() {
-    console.log(process.env.REACT_APP_GMAPS_API)
     return (
       <div>
       <h5>Appointments for:</h5>
