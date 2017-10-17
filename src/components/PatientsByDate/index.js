@@ -58,43 +58,49 @@ class PatientsByDate extends Component {
 
   render() {
     return (
-      <div className="patients-by-date">
-      <h5>Appointments for:</h5>
-        <Row>
-	         <Input
-             name='on'
-             type='date'
-             value={this.state.date}
-             onChange={ event => this.setDate(Date.parse(event.target.value))}
-           />
-         </Row>
-         {this.state.patients.length > 0 ? "" : <h5>No Appointments Today!</h5>}
-        {map(this.state.patients, (patient) => (
-          <div key={patient.patient.id} className="row">
-            <div className="col s5 m3">
-              <div className="card blue darken-2">
-                <div className="card-content white-text">
-                  <span className="card-title">{patient.patient.name}</span>
-                  <p>{patient.patient.phone_number}</p>
-                  <p>{patient.patient.address}</p>
-                </div>
-                <div className="card-action">
-                  <Link to={`/patients/${patient.patient.id}`}>View</Link>
+      <div className="row">
+        <div className="col s6">
+          <div className="patients-by-date">
+            <h5>Appointments for:</h5>
+            <Row>
+              <Input
+                name='on'
+                type='date'
+                value={this.state.date}
+                onChange={ event => this.setDate(Date.parse(event.target.value))}
+              />
+            </Row>
+            {this.state.patients.length > 0 ? "" : <h5>No Appointments Today!</h5>}
+            {map(this.state.patients, (patient) => (
+              <div key={patient.patient.id} className="row">
+                <div className="col s8 m6">
+                  <div className="card blue darken-2">
+                    <div className="card-content white-text">
+                      <span className="card-title">{patient.patient.name}</span>
+                      <p>{patient.patient.phone_number}</p>
+                      <p>{patient.patient.address}</p>
+                    </div>
+                    <div className="card-action">
+                      <Link to={`/patients/${patient.patient.id}`}>View</Link>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
-        ))}
-        <div className="map">
-          <GoogleMapReact
-            bootstrapURLKeys={{key: process.env.REACT_APP_GMAPS_API}}
-            center={[28.842318, -82.38335599999999]}
-            zoom={10}
-            >
-              {map(this.state.locations, (location) => (
-                <MapLocation lat={location[1]} lng={location[2]} text={location[0]}/>
-              ))}
-            </GoogleMapReact>
+        </div>
+        <div className="col s6">
+          <div className="map">
+            <GoogleMapReact
+              bootstrapURLKeys={{key: process.env.REACT_APP_GMAPS_API}}
+              center={[28.842318, -82.38335599999999]}
+              zoom={11}
+              >
+                {map(this.state.locations, (location) => (
+                  <MapLocation lat={location[1]} lng={location[2]} text={location[0]}/>
+                ))}
+              </GoogleMapReact>
+            </div>
         </div>
       </div>
     );
