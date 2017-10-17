@@ -40,15 +40,15 @@ class LandingPage extends Component {
               <div className="col s12 m4">
                 <div className="icon-block">
                   <h2 className="center brown-text"><i className="material-icons">group</i></h2>
-                  <h5 className="center">Title</h5>
-                  <p className="light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum corporis dicta tempora nemo animi quia cupiditate magnam pariatur reiciendis assumenda quaerat, mollitia porro repudiandae quos iure voluptatibus numquam non. Non.</p>
+                  <h5 className="center">Single interface</h5>
+                  <p className="light">This interface is a single source of information vital to finding your patients resience and having all of the pertinent information to their appointment. </p>
                 </div>
               </div>
               <div className="col s12 m4">
                 <div className="icon-block">
                   <h2 className="center brown-text"><i className="material-icons">settings</i></h2>
-                  <h5 className="center">Title</h5>
-                  <p className="light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum cupiditate, laudantium culpa molestiae ducimus dolore totam officia nostrum sunt eaque, beatae, veritatis error pariatur iure consequatur odit nulla incidunt sequi!</p>
+                  <h5 className="center">Easy to Use!</h5>
+                  <p className="light">Our interace is designed for ease of use.  By being able to enter all of the patient information on one screen, time spent building a patient profile can be kept at a minimum.</p>
                 </div>
               </div>
             </div>
@@ -58,7 +58,7 @@ class LandingPage extends Component {
           <div className="section no-pad-bot">
             <div className="container">
               <div className="row center">
-                <h5 className="header col s12 light">A modern solution for managing home health care.</h5>
+                <h5 className="header col s12 light">A modern solution for managing Home Health Care.</h5>
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@ class LandingPage extends Component {
               <div className="col s12 center">
                 <h3><i className="mdi-content-send brown-text"></i></h3>
                 <h4>Contact Us</h4>
-                <p className="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+                <p className="left-align light">Apptly is here to provide you more information, answer any questions you may have and create an effective solution for your Home Health needs.</p>
               </div>
             </div>
           </div>

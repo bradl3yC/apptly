@@ -58,7 +58,7 @@ class PatientsByDate extends Component {
 
   render() {
     return (
-      <div>
+      <div className="patients-by-date">
       <h5>Appointments for:</h5>
         <Row>
 	         <Input
@@ -71,7 +71,7 @@ class PatientsByDate extends Component {
          {this.state.patients.length > 0 ? "" : <h5>No Appointments Today!</h5>}
         {map(this.state.patients, (patient) => (
           <div key={patient.patient.id} className="row">
-            <div className="col s12 m3">
+            <div className="col s5 m3">
               <div className="card blue darken-2">
                 <div className="card-content white-text">
                   <span className="card-title">{patient.patient.name}</span>

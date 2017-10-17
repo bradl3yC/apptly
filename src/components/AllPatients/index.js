@@ -34,7 +34,7 @@ class AllPatients extends Component {
         </Link>
         {map(this.state.patients, (patient) => (
           <div key={patient.id} className="row">
-            <div className="col s12 m3">
+            <div className="col s5 m3">
               <div className="card blue darken-2">
                 <div className="card-content white-text">
                   <span className="card-title">{patient.name}</span>
