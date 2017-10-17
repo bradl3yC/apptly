@@ -46,6 +46,7 @@ class PatientsByDate extends Component {
   }
 
   setDate = (date) => {
+    this.setState({locations: []})
     const formattedDate = moment(date).format('MMMM Do YYYY')
     this.fetchPatients(formattedDate)
 
@@ -53,7 +54,6 @@ class PatientsByDate extends Component {
   }
 
   componentDidMount() {
-    this.setState({locations: []})
     this.fetchPatients(this.state.date);
   }
 
