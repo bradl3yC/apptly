@@ -53,6 +53,7 @@ class PatientsByDate extends Component {
   }
 
   componentDidMount() {
+    this.setState({locations: []})
     this.fetchPatients(this.state.date);
   }
 
