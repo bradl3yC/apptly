@@ -48,7 +48,7 @@ class LandingPage extends Component {
                 <div className="icon-block">
                   <h2 className="center brown-text"><i className="material-icons">settings</i></h2>
                   <h5 className="center">Easy to Use!</h5>
-                  <p className="light">Our interace is designed for ease of use.  By being able to enter all of the patient information on one screen, time spent building a patient profile can be kept at a minimum.</p>
+                  <p className="light">Our interace is designed for ease of use.  By being able to enter all of the patient information on one screen, time spent building a patient profile can be kept to a minimum.</p>
                 </div>
               </div>
             </div>
