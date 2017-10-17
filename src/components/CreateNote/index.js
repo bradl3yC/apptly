@@ -15,7 +15,7 @@ class CreateNote extends Component {
     this.setState({ entry })
   }
 
-  submitNote = (event) => {
+  async submitNote(event) {
       event.preventDefault()
 
       const data = {
@@ -32,8 +32,9 @@ class CreateNote extends Component {
         body: JSON.stringify(data)
       }
 
-      fetch('https://apptly-api.herokuapp.com/notes', options)
-      .then(this.props.history.push(`/patients/${this.props.match.params.id}`))
+      await fetch('https://apptly-api.herokuapp.com/notes', options)
+      window.location.href=`/patients/${this.props.match.params.id}`
+      // .then(this.props.history.push(`/patients/${this.props.match.params.id}`))
   }
 
   render() {
@@ -50,7 +51,7 @@ class CreateNote extends Component {
             </textarea>
           </div>
           <div className="section">
-            <button type="submit" className="btn-floating btn-large waves-effect waves-light red">
+            <button type="submit" className="btn-floating btn-large waves-effect waves-light blue lighten-3">
               <i className="material-icons">add</i>
             </button>
           </div>

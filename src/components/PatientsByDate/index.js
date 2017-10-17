@@ -96,8 +96,8 @@ class PatientsByDate extends Component {
               center={[28.842318, -82.38335599999999]}
               zoom={11}
               >
-                {map(this.state.locations, (location) => (
-                  <MapLocation lat={location[1]} lng={location[2]} text={location[0]}/>
+                {map(this.state.locations, (location, index) => (
+                  <MapLocation key={index} lat={location[1]} lng={location[2]} text={location[0]}/>
                 ))}
               </GoogleMapReact>
             </div>
