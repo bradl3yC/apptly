@@ -41,7 +41,7 @@ class CreatePatient extends Component {
       body: JSON.stringify(data)
     }
 
-    fetch('http://apptly-api.herokuapp.com/patients', options)
+    fetch('https://apptly-api.herokuapp.com/patients', options)
     .then(this.props.history.push('/patients'))
   }
 
