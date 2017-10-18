@@ -17,7 +17,7 @@ class CreateAppointment extends Component {
     this.setState({ [key]: value });
   }
 
-  async submitAppointment(event) {
+  submitAppointment = (event) => {
     event.preventDefault()
 
     const data = {
@@ -34,8 +34,8 @@ class CreateAppointment extends Component {
       body: JSON.stringify(data)
     }
 
-    await fetch('https://apptly-api.herokuapp.com/appointments', options)
-    await window.location.href=`/patients/${this.props.match.params.id}`
+    fetch('https://apptly-api.herokuapp.com/appointments', options)
+    .then(this.props.history.push(`/patients/${this.props.match.params.id}`))
   }
 
   render() {

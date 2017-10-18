@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 
 class Note extends Component {
 
-  aync deleteNote(event) {
+  async deleteNote(event) {
     event.preventDefault()
 
     const headers = new Headers()

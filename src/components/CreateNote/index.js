@@ -15,7 +15,7 @@ class CreateNote extends Component {
     this.setState({ entry })
   }
 
-  async submitNote(event) {
+  submitNote = (event) => {
       event.preventDefault()
 
       const data = {
@@ -32,8 +32,8 @@ class CreateNote extends Component {
         body: JSON.stringify(data)
       }
 
-      await fetch('https://apptly-api.herokuapp.com/notes', options)
-      await window.location.href=`/patients/${this.props.match.params.id}`
+      fetch('https://apptly-api.herokuapp.com/notes', options)
+      .then(this.props.history.push(`/patients/${this.props.match.params.id}`))
   }
 
   render() {
