@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 
 class Note extends Component {
 
-  deleteNote = (event) => {
+  aync deleteNote(event) {
     event.preventDefault()
 
     const headers = new Headers()
@@ -15,8 +15,8 @@ class Note extends Component {
       headers
     }
 
-    fetch(`https://apptly-api.herokuapp.com/notes/${this.props.note.id}`, options)
-    .then(this.props.history.push(`/patients/${this.props.note.patient_id}`))
+    await fetch(`https://apptly-api.herokuapp.com/notes/${this.props.note.id}`, options)
+    await window.location.href=`/patients/${this.props.note.patient_id}`
 
   }
 

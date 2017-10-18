@@ -19,7 +19,7 @@ class CreatePatient extends Component {
     this.setState({ [key]: value });
   }
 
-  submitPatient = (event) => {
+  async submitPatient(event) {
     event.preventDefault()
 
     const data = {
@@ -41,8 +41,8 @@ class CreatePatient extends Component {
       body: JSON.stringify(data)
     }
 
-    fetch('https://apptly-api.herokuapp.com/patients', options)
-    .then(this.props.history.push('/patients'))
+    await fetch('https://apptly-api.herokuapp.com/patients', options)
+    await window.location.href='/patients'
   }
 
   render () {
