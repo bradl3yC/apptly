@@ -33,7 +33,7 @@ class CreateNote extends Component {
       }
 
       fetch('https://apptly-api.herokuapp.com/notes', options)
-      .then(window.location.href=`/patients/${this.props.match.params.id}`)
+      .then(this.props.history.push(`/patients/${this.props.match.params.id}`))
   }
 
   render() {

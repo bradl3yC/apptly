@@ -42,7 +42,7 @@ class CreatePatient extends Component {
     }
 
     fetch('https://apptly-api.herokuapp.com/patients', options)
-    .then(window.location.href='/patients')
+    .then(this.props.history.push('/patients'))
   }
 
   render () {
