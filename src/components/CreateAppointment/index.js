@@ -34,7 +34,7 @@ class CreateAppointment extends Component {
       body: JSON.stringify(data)
     }
 
-    const response = fetch('https://apptly-api.herokuapp.com/appointments', options)
+    const response = await fetch('https://apptly-api.herokuapp.com/appointments', options)
     if (response.status === 200) {
       window.location.href=`/patients/${this.props.match.params.id}`
     }
