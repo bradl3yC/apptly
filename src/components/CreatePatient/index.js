@@ -42,7 +42,7 @@ class CreatePatient extends Component {
     }
 
     const response = await fetch('https://apptly-api.herokuapp.com/patients', options)
-    if (response.status === 201) {
+    if (response.status === 201 || response.status === 200) {
       window.location.href='/patients'
     }
   }
