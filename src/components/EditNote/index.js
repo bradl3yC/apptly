@@ -17,7 +17,7 @@ class EditNote extends Component {
     this.setState({ entry })
   }
 
-  submitNote = (event) => {
+  async submitNote(event) {
     event.preventDefault()
 
     const data = {
@@ -34,8 +34,10 @@ class EditNote extends Component {
       body: JSON.stringify(data)
     }
 
-    fetch(`https://apptly-api.herokuapp.com/notes/${this.state.note.id}`, options)
-    .then(this.props.history.push(`/patients/${this.props.match.params.id}`))
+    const response = await fetch(`https://apptly-api.herokuapp.com/notes/${this.state.note.id}`, options)
+    if (response.status === 200) {
+      window.location.href=`/patients/${this.props.match.params.id}`
+    }
   }
 
   componentDidMount() {

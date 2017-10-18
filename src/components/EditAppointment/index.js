@@ -20,7 +20,7 @@ class EditAppointment extends Component {
     this.setState({ [key]: value });
   }
 
-  submitAppointment = (event) => {
+  async submitAppointment(event) {
     event.preventDefault()
 
     const data = {
@@ -37,8 +37,11 @@ class EditAppointment extends Component {
       body: JSON.stringify(data)
     }
 
-    fetch(`https://apptly-api.herokuapp.com/appointments/${this.state.appointment.id}`, options)
-    .then(this.props.history.push(`/patients/${this.props.match.params.id}`))
+    const response = await fetch(`https://apptly-api.herokuapp.com/appointments/${this.state.appointment.id}`, options)
+    if (response.status === 200) {
+      window.location.href=`/patients/${this.props.match.params.id}`
+    }
+
   }
 
   componentDidMount() {

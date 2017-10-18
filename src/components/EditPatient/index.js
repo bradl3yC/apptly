@@ -34,7 +34,7 @@ class EditPatient extends Component {
     this.setState({[key]: value});
   }
 
-  submitPatient = (event) => {
+  async submitPatient(event) {
     event.preventDefault()
 
     const data = {
@@ -56,8 +56,10 @@ class EditPatient extends Component {
       body: JSON.stringify(data)
     }
 
-    fetch(`https://apptly-api.herokuapp.com/patients/${this.props.match.params.id}`, options)
-    .then(this.props.history.push(`/patients/${this.props.match.params.id}`))
+    const response = await fetch(`https://apptly-api.herokuapp.com/patients/${this.props.match.params.id}`, options)
+    if (response.status === 200) {
+      window.location.href=`/patients/${this.props.match.params.id}`
+    }
   }
 
   render () {
