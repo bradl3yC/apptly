@@ -35,7 +35,7 @@ class CreateAppointment extends Component {
     }
 
     fetch('https://apptly-api.herokuapp.com/appointments', options)
-    .then(this.props.history.push(`/patients/${this.props.match.params.id}`))
+    .then(window.location.href=`/patients/${this.props.match.params.id}`)
   }
 
   render() {
