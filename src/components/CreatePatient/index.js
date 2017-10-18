@@ -41,7 +41,7 @@ class CreatePatient extends Component {
       body: JSON.stringify(data)
     }
 
-    const response = fetch('https://apptly-api.herokuapp.com/patients', options)
+    const response = await fetch('https://apptly-api.herokuapp.com/patients', options)
     if (response.status === 201) {
       window.location.href='/patients'
     }
