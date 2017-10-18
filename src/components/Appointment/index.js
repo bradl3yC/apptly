@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 
 class Appointment extends Component {
 
-    deleteAppointment = (event) => {
+    async deleteAppointment(event) {
       event.preventDefault()
 
       const headers = new Headers()
@@ -17,8 +17,10 @@ class Appointment extends Component {
         headers
       }
 
-      fetch(`https://apptly-api.herokuapp.com/appointments/${this.props.appointment.id}`, options)
-      .then(this.props.history.push(`/patients/${this.props.appointment.patient_id}`))
+      const response = await fetch(`https://apptly-api.herokuapp.com/appointments/${this.props.appointment.id}`, options)
+      if (response.status === 200) {
+        window.location.href=`/patients/${this.props.appointment.patient_id}`
+      }
 
     }
 

@@ -16,7 +16,6 @@ class Note extends Component {
     }
 
     const response = await fetch(`https://apptly-api.herokuapp.com/notes/${this.props.note.id}`, options)
-    await console.log(response.status)
     if (response.status === 200) {
       window.location.href=`/patients/${this.props.note.patient_id}`
     }
