@@ -16,7 +16,7 @@ class ShowPatient extends Component {
     }
   }
 
-  deletePatient = () => {
+  async deletePatient() {
     const options = {
       method: 'DELETE',
       headers: {
@@ -26,8 +26,10 @@ class ShowPatient extends Component {
       }
     }
 
-    fetch('https://apptly-api.herokuapp.com/patients/' + this.props.match.params.id, options)
-    .then(this.props.history.push('/patients'))
+    const response = await fetch('https://apptly-api.herokuapp.com/patients/' + this.props.match.params.id, options)
+    if (response.status === 200) {
+      window.location.href='/patients'
+    }
   }
 
   componentDidMount() {
